@@ -1,18 +1,49 @@
 <script>
-
+import Board from './Panel/Board.vue'
+export default{
+  data(){
+    return{
+      life: 4,
+    }
+  },
+  components:{
+    Board
+  }
+}
 </script>
 <template>
-  <article class="main">
-    <h2>
-      Los archivos de cada uno se encuentran en la carpeta components,
-      si quieren incluir algún icono se debe agregar dentro de la carpeta
-      icons que esta dentro de la carpeta components, cada componente que
-      les toco debe ser creado en su respectiva componente ya creado.
-    </h2>
+  <article class="grid-card">
+    <div class="grid-aside">
+      <span class="title-life">VIDAS RESTANTES</span>
+      <div class="aside-life">
+        <img src="https://www.svgrepo.com/show/503037/heart.svg" alt="" width="25" height="25">
+        <h3>x{{ life }}</h3>
+      </div>
+    </div>
+    <Board />
+    <div class="grid-aside"></div>
   </article>
 </template>
 <style scoped>
-.main{
-  background-color: rgba(150, 150, 250, 0.25);
+.title-life{
+  display: inline-block;
+  text-align: center;
+  font-weight: bold;
+  margin-top: 20px;
+}
+.aside-life{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.grid-card{
+  display: grid;
+  grid-template-columns: 10vw 80vw 10vw;
+  grid-template-rows: 1fr;
+
+  /*background-color: rgba(150, 150, 250, 0.25);*/
+}
+.grid-aside{
+  /*background-color: rgba(133, 81, 255, 0.356);*/
 }
 </style>
