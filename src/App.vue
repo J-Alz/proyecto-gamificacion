@@ -16,7 +16,8 @@ export default {
     <Header />
     <List />
     <Panel />
-    <Footer />
+    <Footer 
+    :time="60"/> <!--Se debe mandar el tiempo en segundos--> 
   </section>
 </template>
 <style scoped>
