@@ -1,18 +1,18 @@
 <script>
-import Card from './Card.vue'
-import words from '/ESPOCH/Archivos/Semestre9/Sistemas Multimedia y Gamificación/Proyecto/proyecto-gamificacion/src/assets/words'
-export default{
-  components:{
-    Card
-  },
-  data(){
-    return{
-      //ADD funcion de comprobacion de dificultad
-      data:words[0].palabras,
+  import Card from './Card.vue'
+  import words from 'C:/Users/andy_/Documents/gamificacion/proyecto-gamificacion/src/assets/words.js'
+  export default{
+    components:{
+      Card
+    },
+    data(){
+      return{
+        //ADD funcion de comprobacion de dificultad
+        data:words[0].palabras,
+      }
     }
+    //<div class="board-card"></div>
   }
-  //<div class="board-card"></div>
-}
 </script>
 <template>
   <article class="board">

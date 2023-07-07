@@ -1,13 +1,25 @@
 <script>
-
+import words from "C:/Users/andy_/Documents/gamificacion/proyecto-gamificacion/src/assets/words.js"
+export default{
+    
+    data(){
+      return{
+        //ADD funcion de comprobacion de dificultad
+        data:words[0].palabras,
+      }
+    }
+    //<div class="board-card"></div>
+  }
 </script>
 <template>
   <article class="list">
-    Componente donde se muestra una lista de las palabras a buscar en
-    las tarjetas, debe cargar las palabras de un archivo js de objetos.
-    de acuerdo con la dificultad elegida y tambien armar el archivo js
-    de objetos, este se encuentra en la carpeta assets y se debe seguir
-    el ejemplo
+    
+      <label v-for= "dato in data" :key="dato.id"  :palabra =dato.palabra > 
+       {{dato.palabra}} <label> </label> 
+      </label>
+    
+    
+
   </article>
 </template>
 <style scoped>
