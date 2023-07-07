@@ -1,6 +1,6 @@
 <script>
   import Card from './Card.vue'
-  import words from 'C:/Users/andy_/Documents/gamificacion/proyecto-gamificacion/src/assets/words.js'
+  import words from '../assets/words.js'
   export default{
     components:{
       Card
