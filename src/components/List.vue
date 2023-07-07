@@ -1,5 +1,5 @@
 <script>
-import words from "C:/Users/andy_/Documents/gamificacion/proyecto-gamificacion/src/assets/words.js"
+import words from '../assets/words.js'
 export default{
     
     data(){
@@ -15,7 +15,7 @@ export default{
   <article class="list">
     
       <label v-for= "dato in data" :key="dato.id"  :palabra =dato.palabra > 
-       {{dato.palabra}} <label> </label> 
+       {{dato.palabra}}
       </label>
     
     
