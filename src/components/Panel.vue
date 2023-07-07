@@ -1,5 +1,5 @@
 <script>
-import Board from './Board.vue'
+import Board from './Panel/Board.vue'
 export default{
   data(){
     return{
