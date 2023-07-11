@@ -1,5 +1,4 @@
 <script>
-
 export default {
   components: {
   },
@@ -11,148 +10,132 @@ export default {
   },
   data() {
     return {
-      Facil:false,
-      Medio:false,
-      Dificil:false,
-      puntosdef:"0"
+      Facil: false,
+      Medio: false,
+      Dificil: false,
+      puntosdef: "0",
+      life: 4,
     };
   },
-  methods:{
+  methods: {
     ejecucion() {
       return true();
     },
   },
   created() {
-    },
+  },
 };
 </script>
 <template>
-  <article class="header">
-    <div class="menu">
-      <div class="sec_izq">
-        <div class="btn_opciones">
-          <div>
-            <div class="btn_ayuda btn_juego">
-              <img src="./icons/question.svg" alt="" width="32" height="32">
-            </div>
-          </div>
-          <div class="dificultad">
-            <div class="btn_juego">
-              <button class="facil">Facil</button>
-            </div>
-            <div class="btn_juego">
-              <button class="medio">Medio</button>
-            </div>
-            <div class="btn_juego">
-              <button class="dificil">Dificil</button>
-            </div>
-          </div>
-        </div>
+  <section class="header">
+    <article class="header-opcion">
+      <span class="ayuda">
+        <img src="./icons/question.svg" alt="" width="32" height="32">
+      </span>
+    </article>
+    <article class="header-centro">
+      <div class="centrar">
+        <button class="btn centro">JUGAR!!</button>
       </div>
-      <div class="sec_cen">
-        <div class="centro btn_juego">
-          <button>JUGAR!!</button>
-        </div>
+      <div class="centrar">
+        <button class="btn facil">Facil</button>
+        <button class="btn medio">Medio</button>
+        <button class="btn dificil">Díficil</button>
       </div>
-      <div class="sec_der">
-        <label class="texto">La puntuacion es: 
-        <h1 class="texto_puntaje">{{ this.puntosdef }} puntos</h1>
-      </label>
+    </article>
+    <article class="centrar">
+      <div class="apilar">
+        <span class="">VIDAS RESTANTES</span>
+        <span>
+          <img class="icon" src="https://www.svgrepo.com/show/503037/heart.svg" alt="" width="25" height="25">
+          x{{ life }}
+        </span>
       </div>
-    </div>
-  </article>
+      <div class="apilar">
+        <span>La puntuación es: </span>
+        <span>{{ this.puntosdef }} puntos</span>
+      </div>
+    </article>
+  </section>
 </template>
+
 <style scoped>
-.header{
+.header {
   background-color: rgb(3, 117, 184);
-}
-.menu{
   width: 100%;
   height: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   align-items: center;
 }
-.sec_izq{
-  display: block;
-}
-.sec_izq .btn_opciones {
+.header-centro{
+  width: 100%;
+  height: 100%;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  text-align: center;
-  
+  grid-template-rows: 1fr 1fr;
 }
-.btn_opciones {
-  display: block;
-}
-.btn_juego {
-  display: block;
-  padding: 2% 5%;
-  
-}
-.dificultad{
-
+.centrar{
   display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  column-gap: 10px;
+  color: white;
+}
+.btn{
+  cursor: pointer;
+  padding: 10px 30px;
+  border-radius: 10px;
+  margin: 0;
+  border: 0;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+}
+.btn:hover{
+  background-color: rgba(126, 126, 126, 0.733);
+  border: 1px solid black;
+}
+.centro{
+  background-color: rgb(5, 39, 151);
+  color: white;
+}
+.facil{
+  background-color: rgb(97, 146, 24);
+  color: white;
+}
+.medio{
+  background-color: rgb(255, 153, 0);
+  color: white;
+}
+.dificil{
+  background-color: rgb(255, 71, 47);
+  color: white;
+}
+.header-opcion{
+  display: flex;
+  justify-content: space-around;
+}
+.ayuda{
+  cursor: pointer;
+}
+.ayuda:hover{
+  filter: invert(100%);
+}
+.apilar{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
 }
-.sec_cen .centro{
-  text-align: center;
+span{
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.sec_der{
-  padding-right: 10%;
-  text-align: right;
-}
-
-/*esta seccion poner el estilo de los textos (seccion roja)*/
-.texto{ 
-  color: white;
-}
-.texto_puntaje{ color: white;}
-
-/*esta seccion poner el estilo de los botones (todos los botones)*/
-.btn_juego button{
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    border-radius: 15%;
+.icon{
+  filter: invert(100%);
 }
 
-.btn_juego button:hover{
-  background-color: rgb(255, 255, 255);
-  color: #000;
-  cursor: pointer;
-}
-
-/*seccion para modificar btn ayuda*/
-.btn_ayuda svg{
-  color: white;
-}
-.btn_ayuda svg:hover{
-  cursor: pointer;
-}
-/*seccion para modificar btns dificultad*/
-.dificultad .btn_juego .facil{
-  background-color: rgb(97, 146, 24);
-}
-.dificultad .btn_juego .medio{
-  background-color: rgb(255, 153, 0);
-}
-.dificultad .btn_juego .dificil{
-  background-color: rgb(255, 71, 47);
-}
-
-.dificultad .btn_juego button:hover{
-  background-color: rgb(255, 255, 255);
-  color: #000;
-  cursor: pointer;
-}
-/*seccion para modificar btn de jugar*/
-.centro button{
-  background-color: rgb(5, 39, 151);
-  border-radius: 50%;
-}
 </style>

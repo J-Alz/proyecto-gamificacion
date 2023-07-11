@@ -27,13 +27,11 @@
 <style scoped>
 .board{
   display: grid;
-  grid-template-columns: repeat(7,110px);
+  grid-template-columns: repeat(9,110px);
   grid-template-rows: 126px 126px 126px;
   
   justify-content: center;
   align-items: center;
-
-  background-color: rgba(5, 190, 67, 0.623);
 }
 .board-card{
   display: flex;

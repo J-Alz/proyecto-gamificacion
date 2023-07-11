@@ -2,56 +2,45 @@ const words = [
   {
     dificultad : "facil",
     palabras: [
-     /* {
-        id: 1,
-        palabra: "cat",
-        significado: "gato",
-        imagen:'/folder/imagen01.png'
-      },*/
-
       {
         id: 1,
         palabra: "please",
         significado: "por favor",
-        imagen:'/folder/Grupo 1/1. Please.png'
-      },
-      {
+        imagen:'src/img/easy/e001.png'
+      },{
         id: 2,
         palabra: "Thank you",
         significado: "Gracias",
-        imagen:'/folder/Grupo 1/ 2. Thanks.png'
-  
-      },
-      {
+        imagen:'src/img/easy/e002.png'
+      },{
         id: 3,
         palabra: "Name",
         significado: "Nombre",
-        imagen:'/folder/Grupo 1/ '
-      },
-      {
+        imagen:'src/img/easy/e003.png'
+      },{
         id: 4,
         palabra: "new",
         significado: "nuevo",
-        imagen:'/folder/Grupo 1/ '
+        imagen:'src/img/easy/e004.png'
       },
       {
         id: 5,
         palabra: "one",
         significado: "1",
-        imagen:'/folder/Grupo 1/ '
+        imagen:'src/img/easy/e005.png'
       },
       {
         id: 6,
         palabra: "two",
         significado: "2",
-        imagen:'/folder/Grupo 1/ '
+        imagen:'src/img/easy/e006.png'
       },
 
       {
         id: 7 ,
         palabra: "three",
         significado: "3",
-        imagen:'/folder/Grupo 1/ '
+        imagen:'src/img/easy/e007.png'
       },
 
       
@@ -59,7 +48,7 @@ const words = [
         id: 8,
         palabra: "four",
         significado: "4",
-        imagen:'/folder/Grupo 1/ '
+        imagen:'src/img/easy/e008.png'
       },
 
       
@@ -67,42 +56,42 @@ const words = [
         id: 9,
         palabra: "five",
         significado: "5",
-        imagen:'/folder/Grupo 1/ '
+        imagen:'src/img/easy/e009.png'
       },
       
       {
         id: 10,
         palabra: "six",
         significado: "6",
-        imagen:'/folder/Grupo 1/ '
+        imagen:'src/img/easy/e010.png'
       },
       
       {
         id: 11,
         palabra: "seven",
         significado: "7",
-        imagen:'/folder/Grupo 1/ '
+        imagen:'src/img/easy/e011.png'
       },
       
       {
         id: 12,
         palabra: "eight",
         significado: "8",
-        imagen:'/folder/Grupo 1/ '
+        imagen:'src/img/easy/e012.png'
       },
       
       {
         id: 13,
         palabra: "nine",
         significado: "9",
-        imagen:'/folder/Grupo 1/ '
+        imagen:'src/img/easy/e013.png'
       },
       
       {
         id: 14,
         palabra: "ten",
         significado: "10",
-        imagen:'/folder/Grupo 1/ '
+        imagen:'src/img/easy/e014.png'
       },
 
       
@@ -110,7 +99,7 @@ const words = [
         id: 15,
         palabra: "wallet",
         significado: "Billetera",
-        imagen:'/folder/Grupo 1/ '
+        imagen:'src/img/easy/e015.png'
       },
 
       
@@ -118,7 +107,7 @@ const words = [
         id:16 ,
         palabra: " umbrella",
         significado: "paraguas",
-        imagen:'/folder/Grupo 1/ '
+        imagen:'src/img/easy/e016.png'
       },
 
       
@@ -126,7 +115,7 @@ const words = [
         id:17 ,
         palabra: "watch",
         significado: "reloj de muñeca",
-        imagen:'/folder/Grupo 1/ '
+        imagen:'src/img/easy/e017.png'
       },
 
       
@@ -134,7 +123,7 @@ const words = [
         id: 18,
         palabra: "clock",
         significado: "reloj de pared",
-        imagen:'/folder/Grupo 1/ '
+        imagen:'src/img/easy/e018.png'
       },
 
       
@@ -142,7 +131,7 @@ const words = [
         id: 19,
         palabra: "camera",
         significado: "camara",
-        imagen:'/folder/Grupo 1/ '
+        imagen:'src/img/easy/e019.png'
       },
 
       
@@ -150,7 +139,7 @@ const words = [
         id: 20,
         palabra: "bicycle",
         significado: "bicicleta",
-        imagen:'/folder/Grupo 1/ '
+        imagen:'src/img/easy/e020.png'
       },
 
       
@@ -158,7 +147,7 @@ const words = [
         id: 21,
         palabra: "dictionary",
         significado: "diccionario",
-        imagen:'/folder/Grupo 1/ '
+        imagen:'src/img/easy/e021.png'
       },
 
       
@@ -166,7 +155,7 @@ const words = [
         id: 22,
         palabra: "file",
         significado: "archivo",
-        imagen:'/folder/Grupo 1/ '
+        imagen:'src/img/easy/e022.png'
       },
 
       
@@ -174,7 +163,7 @@ const words = [
         id: 23,
         palabra: "folder",
         significado: "carpeta",
-        imagen:'/folder/Grupo 1/ '
+        imagen:'src/img/easy/e023.png'
       },
 
       
@@ -182,7 +171,7 @@ const words = [
         id: 24 ,
         palabra: "glasses",
         significado: "lentes",
-        imagen:'/folder/Grupo 1/ '
+        imagen:'src/img/easy/e024.png'
       },
 
       
@@ -190,40 +179,40 @@ const words = [
         id: 25 ,
         palabra: "key",
         significado: "llaves",
-        imagen:'/folder/Grupo 1/ '
+        imagen:'src/img/easy/e025.png'
       },
 
       {
         id: 26 ,
         palabra: "magazine",
         significado: "revista",
-        imagen:'/folder/Grupo 1/ '
+        imagen:'src/img/easy/e026.png'
       },
 
       {
         id:  27,
         palabra: " ewspaper",
         significado: "newspaper",
-        imagen:'/folder/Grupo 1/ '
+        imagen:'src/img/easy/e027.png'
       },
       {
         id:  28,
         palabra: "pencil",
         significado: "lapiz",
-        imagen:'/folder/Grupo 1/ '
+        imagen:'src/img/easy/e028.png'
       },
 
       {
         id:  29,
         palabra: "photo/picture",
         significado: "foto",
-        imagen:'/folder/Grupo 1/ '
+        imagen:'src/img/easy/e029.png'
       },
       {
         id:  30,
         palabra: "cain",
         significado: "moneda",
-        imagen:'/folder/Grupo 1/ '
+        imagen:'src/img/easy/e030.png'
       }
       
     ]

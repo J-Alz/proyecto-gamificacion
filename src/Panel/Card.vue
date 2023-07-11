@@ -44,7 +44,7 @@ export default{
   width: 100px;
   background-color: white;
   border-radius: 10px;
-  box-shadow: 2px 2px 4px rgba(10, 10, 10, 0.801);
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
 }
 .card-shadow{
   height: 110px;
