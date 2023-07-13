@@ -1,18 +1,35 @@
 <script>
   import Card from './Card.vue'
   import words from '../assets/words.js'
+  import { buscarPalabrasPorDificultad, elegir21 } from '../assets/funciones'
+
   export default{
-    components:{
-      Card
+    props: {
+    dificultadSeleccionada: {
+      type: String,
+      required: true,
     },
-    data(){
-      return{
-        //ADD funcion de comprobacion de dificultad
-        data:words[0].palabras,
-      }
+  },
+  watch: {
+    dificultadSeleccionada: {
+      immediate: true,
+      handler(nuevaDificultad) {
+        // Ejecuta la busqueda de al dificultad y se asigna a data2
+        this.data = elegir21(buscarPalabrasPorDificultad(nuevaDificultad));
+      },
+    },
+  },
+  components: {
+    Card
+  },
+  data() {
+    return {
+      //ADD funcion de comprobacion de dificultad
+      data: [],
     }
-    //<div class="board-card"></div>
   }
+  //<div class="board-card"></div>
+}
 </script>
 <template>
   <article class="board">

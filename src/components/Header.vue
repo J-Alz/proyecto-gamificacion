@@ -21,6 +21,11 @@ export default {
     ejecucion() {
       return true();
     },
+    seleccionarDificultad(dificultad) {
+      // console.log("dificultad "+dificultad)
+      this.dificultadSeleccionada = dificultad;
+      this.$emit('dificultadCambiada', this.dificultadSeleccionada);
+    },
   },
   created() {
   },
@@ -38,10 +43,10 @@ export default {
         <button class="btn centro">JUGAR!!</button>
       </div>
       <div class="centrar">
-        <button class="btn facil">Facil</button>
-        <button class="btn medio">Medio</button>
-        <button class="btn dificil">Díficil</button>
-      </div>
+        <button class="btn facil" @click="seleccionarDificultad('Facil')">Facil</button>
+    <button class="btn medio" @click="seleccionarDificultad('Medio')">Medio</button>
+    <button class="btn dificil" @click="seleccionarDificultad('Avanzado')">Díficil</button>
+  </div>
     </article>
     <article class="centrar">
       <div class="apilar">

@@ -1,6 +1,12 @@
 <script>
 import Board from './Board.vue'
 export default{
+  props: {
+    dificultadSeleccionada: {
+      type: String,
+      required: true,
+    },
+  },
   data(){
     return{
       
@@ -13,7 +19,7 @@ export default{
 </script>
 <template>
   <article class="grid-card">
-    <Board />
+    <Board :dificultadSeleccionada="dificultadSeleccionada"/>
   </article>
 </template>
 <style scoped>

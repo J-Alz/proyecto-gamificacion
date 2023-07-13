@@ -1,30 +1,51 @@
 <script>
 import words from '../assets/words'
-import { elegir21 } from '../assets/funciones'
+import { buscarPalabrasPorDificultad, elegir21 } from '../assets/funciones'
 
-export default{
-    data(){
-      return{
-        //ADD funcion de comprobacion de dificultad
-        data:words[0].palabras,
-        data2:elegir21(words[0].palabras)
-      }
+export default {
+  props: {
+    dificultadSeleccionada: {
+      type: String,
+      required: true,
     },
-    mounted(){
-      elegir21(words[0].palabras)
-    },
-    methods:{
-      scrollLeft(){
-        const container = this.$refs.listContainer;
-        container.style.transform = 'translateX(${container.getBoundingClientRect().width * -1}px)'
+  },
+  watch: {
+    dificultadSeleccionada: {
+      immediate: true,
+      handler(nuevaDificultad) {
+        // Ejecuta la busqueda de al dificultad y se asigna a data2
+        this.data2 = elegir21(buscarPalabrasPorDificultad(nuevaDificultad));
       },
-      scrollRight(){
-        const container = this.$refs.listContainer
-        container.style.transform = 'translateX(0)'
-      }
+    },
+  },
+  data() {  
+    return {
+      data2:[],
     }
-    
+  },
+  mounted() {
+
+  },
+  methods: {
+    scrollLeft() {
+      const container = this.$refs.listContainer;
+      container.style.transform = `translateX(${container.getBoundingClientRect().width * -1}px)`;
+    },
+    scrollRight() {
+      const container = this.$refs.listContainer
+      container.style.transform = `translateX(0)`;
+    },
+    // Realiza la busqueda de la dificultad dentro de words.js
+    // buscarPalabrasPorDificultad(dificultad) {
+    //   const filteredWords = words.find((wordSet) => wordSet.dificultad === dificultad);
+    //   if (filteredWords) {
+    //     return filteredWords.palabras;
+    //   }
+    //   return [];
+    // }
   }
+
+}
 </script>
 <template>
   <article class="horizontal">

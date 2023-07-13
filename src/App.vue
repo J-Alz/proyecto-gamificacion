@@ -8,14 +8,23 @@ import Panel from './Panel/Panel.vue'
 export default {
   components: {
     Header, Footer, List, Panel
-  }
+  },data() {
+    return {
+      dificultadSeleccionada: null,
+    };
+  },
+  methods: {
+    dificultadCambiada(dificultad) {
+      this.dificultadSeleccionada = dificultad;
+    },
+  },
 }
 </script>
 <template>
   <section class="contenedor">
-    <Header />
-    <List />
-    <Panel />
+    <Header @dificultadCambiada="dificultadCambiada"/>
+    <List :dificultadSeleccionada="dificultadSeleccionada"/>
+    <Panel :dificultadSeleccionada="dificultadSeleccionada"/>
     <Footer 
     :time="600"/> <!--Se debe mandar el tiempo en segundos--> 
   </section>
