@@ -1,57 +1,59 @@
 <script>
   import Card from './Card.vue'
-  import words from '../assets/words.js'
-  import { buscarPalabrasPorDificultad, elegir21 } from '../assets/funciones'
 
-  export default{
-    props: {
-    dificultadSeleccionada: {
-      type: String,
-      required: true,
-    },
-  },
-  watch: {
-    dificultadSeleccionada: {
-      immediate: true,
-      handler(nuevaDificultad) {
-        // Ejecuta la busqueda de al dificultad y se asigna a data2
-        this.data = elegir21(buscarPalabrasPorDificultad(nuevaDificultad));
-      },
-    },
+export default{
+  props: {
+    words:[]
   },
   components: {
     Card
   },
   data() {
     return {
-      //ADD funcion de comprobacion de dificultad
       data: [],
+      selectedCardId:null
+    }
+  },
+  methods:{
+    isSelectedCard(cardId){
+      return this.selectedCardId === cardId
+    },
+    selectCard(cardId){
+      this.selectedCardId = cardId
+      this.$emit('cardSelected',cardId)
+      console.log(this.selectedCardId)
     }
   }
-  //<div class="board-card"></div>
 }
 </script>
 <template>
-  <article class="board">
-    <Card 
-      v-for="dato in data" :key="dato.id"
+  <section class="grid-card">
+    <article class="board" >
+      <Card v-for="dato in words" 
+      :key="dato.id"
       :url="dato.imagen" 
       :palabra="dato.palabra" 
       :significado="dato.significado" 
-      :id="dato.id"/>
-  </article>
+      :id="dato.id"
+      :selected="isSelectedCard(dato.id)"
+      @cardSelected="selectCard"
+      />
+    </article>
+  </section>
 </template>
+
 <style scoped>
+.grid-card{
+  display: grid;
+  grid-template-columns: 100vw;
+  grid-template-rows: 1fr;
+  background-color: rgba(3, 117, 184,1);
+}
 .board{
   display: grid;
   grid-template-columns: repeat(9,110px);
   grid-template-rows: 126px 126px 126px;
   
-  justify-content: center;
-  align-items: center;
-}
-.board-card{
-  display: flex;
   justify-content: center;
   align-items: center;
 }

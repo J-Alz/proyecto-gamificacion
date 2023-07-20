@@ -5,32 +5,29 @@ export default{
     palabra:String,
     significado:String,
     url:String,
-  },
-  data(){
-    return{
-      //int de componente
-      isActive: false,
-    }
+    selected:Boolean,
   },
   methods:{
-    //comprobar funcionamiento
-    checkActive(){
-      this.isActive = !this.isActive
+    onCardClick(){
+      this.$emit('cardSelected',this.id)
     }
   }
 }
 </script>
 
 <template>
-  <article class="box">
-    <div class="box-card">
+  <article class="box" >
+    <div class="box-card" @click="onCardClick" >
       <img :src="url" :alt="palabra" :id="id" :title="palabra">
-      <div @click="checkActive" class="card-shadow" :class="{ }"></div>
+      <div class="card-shadow" :class="{'activada':selected}"></div>
     </div>
   </article>
 </template>
 
 <style scoped>
+.selected{
+  background-color: rgba(81, 255, 0, 0.555)
+}
 .box{
   display: flex;
   justify-content: center;
@@ -46,6 +43,9 @@ export default{
   border-radius: 10px;
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
 }
+.activada{
+  background-color: rgba(255, 0, 0, 0.555)
+}
 .card-shadow{
   height: 110px;
   width: 100px;
@@ -56,6 +56,9 @@ export default{
 .card-shadow:hover{
   cursor: pointer;
   background-color: rgba(253, 124, 124, 0.8);
+}
+.enable{
+  background-color: rgba(61, 61, 61, 0.8);
 }
 img{
   position: absolute;

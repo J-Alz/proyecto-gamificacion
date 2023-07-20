@@ -5,26 +5,55 @@ export default {
   props: {
     Puntos: {
       type: String,
-      required: true
-    }
+      required: true,
+    },
+    activate: Boolean,
   },
   data() {
     return {
       Facil: false,
       Medio: false,
       Dificil: false,
-      puntosdef: "0",
+      puntos: "0",
       life: 4,
+      isClickedFacil: false,
+      isClickedMedio: false,
+      isClickedAvanzado: false,
+      verb:'JUGAR!!!'
     };
   },
   methods: {
     ejecucion() {
-      return true();
+      if(this.verb === 'JUGAR!!!'){
+        this.$emit('ActivarJuego',true)
+        this.verb = 'PAUSAR'
+      }else{
+        this.$emit('ActivarJuego',false)
+        this.verb = 'JUGAR!!!'
+      }
     },
+    verAyuda(){
+      this.$emit('showAyuda',true)
+    }
+    ,
     seleccionarDificultad(dificultad) {
-      // console.log("dificultad "+dificultad)
       this.dificultadSeleccionada = dificultad;
       this.$emit('dificultadCambiada', this.dificultadSeleccionada);
+      if ( dificultad === 'Facil'){
+        this.isClickedFacil = true;
+        this.isClickedMedio = false;
+        this.isClickedAvanzado = false;
+      }
+      if ( dificultad === 'Medio'){
+        this.isClickedMedio = true;
+        this.isClickedFacil = false;
+        this.isClickedAvanzado = false;
+      }
+      if ( dificultad === 'Avanzado'){
+        this.isClickedAvanzado = !this.isClickedAvanzado;
+        this.isClickedFacil = false;
+        this.isClickedMedio = false;
+      }
     },
   },
   created() {
@@ -34,18 +63,18 @@ export default {
 <template>
   <section class="header">
     <article class="header-opcion">
-      <span class="ayuda">
+      <span class="ayuda" @click="verAyuda">
         <img src="./icons/question.svg" alt="" width="32" height="32">
       </span>
     </article>
     <article class="header-centro">
       <div class="centrar">
-        <button class="btn centro">JUGAR!!</button>
+        <button class="btn centro" @click="ejecucion">{{ verb }}</button>
       </div>
       <div class="centrar">
-        <button class="btn facil" @click="seleccionarDificultad('Facil')">Facil</button>
-    <button class="btn medio" @click="seleccionarDificultad('Medio')">Medio</button>
-    <button class="btn dificil" @click="seleccionarDificultad('Avanzado')">Díficil</button>
+        <button class="btn facil" :class="{'clicked': isClickedFacil}" @click="seleccionarDificultad('Facil')">Facil</button>
+    <button class="btn medio" :class="{'clicked': isClickedMedio}" @click="seleccionarDificultad('Medio')">Medio</button>
+    <button class="btn dificil" :class="{'clicked': isClickedAvanzado}" @click="seleccionarDificultad('Avanzado')">Díficil</button>
   </div>
     </article>
     <article class="centrar">
@@ -58,7 +87,7 @@ export default {
       </div>
       <div class="apilar">
         <span>La puntuación es: </span>
-        <span>{{ this.puntosdef }} puntos</span>
+        <span>{{ this.puntos }} puntos</span>
       </div>
     </article>
   </section>
@@ -141,6 +170,11 @@ span{
 }
 .icon{
   filter: invert(100%);
+}
+
+.clicked{
+  background-color: rgba(126, 126, 126, 0.733);
+  border: 1px solid black;
 }
 
 </style>

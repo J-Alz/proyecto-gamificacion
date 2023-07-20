@@ -1,124 +1,72 @@
 <script>
-import words from '../assets/words'
-import { buscarPalabrasPorDificultad, elegir21 } from '../assets/funciones'
-
 export default {
   props: {
-    dificultadSeleccionada: {
-      type: String,
-      required: true,
-    },
-  },
-  watch: {
-    dificultadSeleccionada: {
-      immediate: true,
-      handler(nuevaDificultad) {
-        // Ejecuta la busqueda de al dificultad y se asigna a data2
-        this.data2 = elegir21(buscarPalabrasPorDificultad(nuevaDificultad));
-      },
-    },
+    words:[]
   },
   data() {  
     return {
-      data2:[],
+      selectedWordId: null
     }
   },
-  mounted() {
-
-  },
   methods: {
-    scrollLeft() {
-      const container = this.$refs.listContainer;
-      container.style.transform = `translateX(${container.getBoundingClientRect().width * -1}px)`;
+    isSelected(wordId){
+      return this.selectedWordId === wordId
     },
-    scrollRight() {
-      const container = this.$refs.listContainer
-      container.style.transform = `translateX(0)`;
-    },
-    // Realiza la busqueda de la dificultad dentro de words.js
-    // buscarPalabrasPorDificultad(dificultad) {
-    //   const filteredWords = words.find((wordSet) => wordSet.dificultad === dificultad);
-    //   if (filteredWords) {
-    //     return filteredWords.palabras;
-    //   }
-    //   return [];
-    // }
+    selectWord(wordId){
+      this.selectedWordId = wordId;
+      this.$emit('wordSelected',this.selectedWordId)
+    }
   }
 
 }
 </script>
+
 <template>
-  <article class="horizontal">
-    <button @click="scrollLeft" class="btn-x">left</button>
-    <div class="list-container" ref="listContainer">
-      <ul class="horizontal-list">
-        <li class="element-list" v-for="dato in data2" :key="dato.id">{{ dato.palabra }}</li>
-      </ul>
-    </div>
-    <button @click="scrollRight" class="btn-x">right</button>
-  </article>
+  <section class="horizontal">
+    <article class="list-container">
+      <div 
+      class="element"
+      :class="{ selected : isSelected(dato.id)}"
+      v-for="dato in words" 
+      :key="dato.id"
+      @click="selectWord(dato.id)">
+        {{ dato.palabra }}
+      </div>
+    </article>
+  </section>
 </template>
+
 <style scoped>
 .horizontal{
   display: flex;
-  justify-content: space-between;
+  width: 100vw;
+  justify-content: center;
   align-items: center;
+  background-color: rgba(3, 117, 184,1);
+  
 }
 .list-container{
-  white-space: nowrap;
-}
-.horizontal-list{
   display: flex;
-  width: 90vw;
-
+  width: 98%;
   height: 100%;
-  padding: 0;
-  margin: 0;
-  list-style-type: none;
-  overflow-x: hidden;
+  background-color: rgba(3, 117, 184,1);
   align-items: center;
-  transition: transform 0.3s ease;
-}
-.element-list{
-  border: 1px solid black;
-  padding: 1px 10px;
-}
-.btn-x{
-  cursor: pointer;
-  width: 5vw;
-  height: 50px;
-  border: 2px solid black;
-  background-color: white;
-  border-radius: 1000px;
-  font-family: 'Roboto', sans-serif;
-  font-size: 16px;
-}
-.btn-x:hover{
-  background-color: rgba(0, 0, 0, 1);
-  color: white;
-  border: 2px solid white;
-}
-
-
-
-.list{
-  display: flex;
-  background-color: rgba(250, 150, 150, 0.25);
-  align-items: center;
-  justify-content: center;
-  column-gap: 10px;
-  overflow: auto;
   overflow-x: auto;
   overflow-y: hidden;
+  white-space: nowrap;
 }
-.labeltxt{
+.element{
   cursor: pointer;
+  background-color: yellow;
   border: 1px solid black;
-  width: 100px;
-  padding: 2px 5px;
-  background-color: white;
+  border-radius: 10px;
+  padding: 0px 10px;
+  margin: 0px 10px;
 }
-.labeltxt:hover{
-  background-color: rgba(180, 180, 180, 0.25);
+.element:hover{
+  background-color: aqua;
+}
+.selected{
+  background-color: blue;
 }
 </style>

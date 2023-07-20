@@ -7,181 +7,211 @@ const words = [
         id: 1,
         palabra: "Please",
         significado: "por favor",
-        imagen: "src/img/easy/e001.png"
+        imagen: "src/img/easy/e001.png",
+        seleccionado: false,
       },
       {
         id: 2,
         palabra: "Thank you",
         significado: "Gracias",
-        imagen: "src/img/easy/e002.png"
+        imagen: "src/img/easy/e002.png",
+        seleccionado: false,
       },
       {
         id: 3,
         palabra: "Name",
         significado: "Nombre",
-        imagen: "src/img/easy/e003.png"
+        imagen: "src/img/easy/e003.png",
+        seleccionado: false,
       },
       {
         id: 4,
         palabra: "New",
         significado: "nuevo",
-        imagen: "src/img/easy/e004.png"
+        imagen: "src/img/easy/e004.png",
+        seleccionado: false,
       },
       {
         id: 5,
         palabra: "One",
         significado: "1",
-        imagen: "src/img/easy/e005.png"
+        imagen: "src/img/easy/e005.png",
+        seleccionado: false,
       },
       {
         id: 6,
         palabra: "Two",
         significado: "2",
-        imagen: "src/img/easy/e006.png"
+        imagen: "src/img/easy/e006.png",
+        seleccionado: false,
       },
       {
         id: 7,
         palabra: "Three",
         significado: "3",
-        imagen: "src/img/easy/e007.png"
+        imagen: "src/img/easy/e007.png",
+        seleccionado: false,
       },
       {
         id: 8,
         palabra: "Four",
         significado: "4",
-        imagen: "src/img/easy/e008.png"
+        imagen: "src/img/easy/e008.png",
+        seleccionado: false,
       },
       {
         id: 9,
         palabra: "Five",
         significado: "5",
-        imagen: "src/img/easy/e009.png"
+        imagen: "src/img/easy/e009.png",
+        seleccionado: false,
       },
       {
         id: 10,
         palabra: "Six",
         significado: "6",
-        imagen: "src/img/easy/e010.png"
+        imagen: "src/img/easy/e010.png",
+        seleccionado: false,
       },
       {
         id: 11,
         palabra: "Seven",
         significado: "7",
-        imagen: "src/img/easy/e011.png"
+        imagen: "src/img/easy/e011.png",
+        seleccionado: false,
       },
       {
         id: 12,
         palabra: "Eight",
         significado: "8",
-        imagen: "src/img/easy/e012.png"
+        imagen: "src/img/easy/e012.png",
+        seleccionado: false,
       },
       {
         id: 13,
         palabra: "Nine",
         significado: "9",
-        imagen: "src/img/easy/e013.png"
+        imagen: "src/img/easy/e013.png",
+        seleccionado: false,
       },
       {
         id: 14,
         palabra: "Ten",
         significado: "10",
-        imagen: "src/img/easy/e014.png"
+        imagen: "src/img/easy/e014.png",
+        seleccionado: false,
       },
       {
         id: 15,
         palabra: "Wallet",
         significado: "Billetera",
-        imagen: "src/img/easy/e015.png"
+        imagen: "src/img/easy/e015.png",
+        seleccionado: false,
       },
       {
         id: 16,
         palabra: "Umbrella",
         significado: "paraguas",
-        imagen: "src/img/easy/e016.png"
+        imagen: "src/img/easy/e016.png",
+        seleccionado: false,
       },
       {
         id: 17,
         palabra: "Watch",
         significado: "reloj de muñeca",
-        imagen: "src/img/easy/e017.png"
+        imagen: "src/img/easy/e017.png",
+        seleccionado: false,
       },
       {
         id: 18,
         palabra: "Clock",
         significado: "reloj de pared",
-        imagen: "src/img/easy/e018.png"
+        imagen: "src/img/easy/e018.png",
+        seleccionado: false,
       },
       {
         id: 19,
         palabra: "Camera",
         significado: "camara",
-        imagen: "src/img/easy/e019.png"
+        imagen: "src/img/easy/e019.png",
+        seleccionado: false,
       },
       {
         id: 20,
         palabra: "Bicycle",
         significado: "bicicleta",
-        imagen: "src/img/easy/e020.png"
+        imagen: "src/img/easy/e020.png",
+        seleccionado: false,
       },
       {
         id: 21,
         palabra: "Dictionary",
         significado: "diccionario",
-        imagen: "src/img/easy/e021.png"
+        imagen: "src/img/easy/e021.png",
+        seleccionado: false,
       },
       {
         id: 22,
         palabra: "File",
         significado: "archivo",
-        imagen: "src/img/easy/e022.png"
+        imagen: "src/img/easy/e022.png",
+        seleccionado: false,
       },
       {
         id: 23,
         palabra: "Folder",
         significado: "carpeta",
-        imagen: "src/img/easy/e023.png"
+        imagen: "src/img/easy/e023.png",
+        seleccionado: false,
       },
       {
         id: 24,
         palabra: "Glasses",
         significado: "lentes",
-        imagen: "src/img/easy/e024.png"
+        imagen: "src/img/easy/e024.png",
+        seleccionado: false,
       },
       {
         id: 25,
         palabra: "Key",
         significado: "llaves",
-        imagen: "src/img/easy/e025.png"
+        imagen: "src/img/easy/e025.png",
+        seleccionado: false,
       },
       {
         id: 26,
         palabra: "Magazine",
         significado: "revista",
-        imagen: "src/img/easy/e026.png"
+        imagen: "src/img/easy/e026.png",
+        seleccionado: false,
       },
       {
         id: 27,
         palabra: "Newspaper",
         significado: "periódico",
-        imagen: "src/img/easy/e027.png"
+        imagen: "src/img/easy/e027.png",
+        seleccionado: false,
       },
       {
         id: 28,
         palabra: "Pencil",
         significado: "lápiz",
-        imagen: "src/img/easy/e028.png"
+        imagen: "src/img/easy/e028.png",
+        seleccionado: false,
       },
       {
         id: 29,
         palabra: "Photo/Picture",
         significado: "foto",
-        imagen: "src/img/easy/e029.png"
+        imagen: "src/img/easy/e029.png",
+        seleccionado: false,
       },
       {
         id: 30,
         palabra: "Coin",
         significado: "moneda",
-        imagen: "src/img/easy/e030.png"
+        imagen: "src/img/easy/e030.png",
+        seleccionado: false,
       }
     ]
   },
@@ -192,181 +222,211 @@ const words = [
         id: 31,
         palabra: "Always",
         significado: "Siempre",
-        imagen: "src/img/medium/m001.png"
+        imagen: "src/img/medium/m001.png",
+        seleccionado: false,
       },
       {
         id: 32,
         palabra: "Usually",
         significado: "Usualmente",
-        imagen: "src/img/medium/m002.png"
+        imagen: "src/img/medium/m002.png",
+        seleccionado: false,
       },
       {
         id: 33,
         palabra: "Often",
         significado: "A menudo",
-        imagen: "src/img/medium/m003.png"
+        imagen: "src/img/medium/m003.png",
+        seleccionado: false,
       },
       {
         id: 34,
         palabra: "Sometimes",
         significado: "A veces",
-        imagen: "src/img/medium/m004.png"
+        imagen: "src/img/medium/m004.png",
+        seleccionado: false,
       },
       {
         id: 35,
         palabra: "Hardly ever",
         significado: "Casi nunca",
-        imagen: "src/img/medium/m005.png"
+        imagen: "src/img/medium/m005.png",
+        seleccionado: false,
       },
       {
         id: 36,
         palabra: "Rarely",
         significado: "Casi nunca",
-        imagen: "src/img/medium/m006.png"
+        imagen: "src/img/medium/m006.png",
+        seleccionado: false,
       },
       {
         id: 37,
         palabra: "Almost never",
         significado: "Casi nunca",
-        imagen: "src/img/medium/m007.png"
+        imagen: "src/img/medium/m007.png",
+        seleccionado: false,
       },
       {
         id: 38,
         palabra: "Never",
         significado: "Nunca",
-        imagen: "src/img/medium/m008.png"
+        imagen: "src/img/medium/m008.png",
+        seleccionado: false,
       },
       {
         id: 39,
         palabra: "Drill",
         significado: "Taladro",
-        imagen: "src/img/medium/m009.png"
+        imagen: "src/img/medium/m009.png",
+        seleccionado: false,
       },
       {
         id: 40,
         palabra: "Electric screwdriver",
         significado: "Destornillador eléctrico",
-        imagen: "src/img/medium/m010.png"
+        imagen: "src/img/medium/m010.png",
+        seleccionado: false,
       },
       {
         id: 41,
         palabra: "Polishing machine",
         significado: "Pulidora",
-        imagen: "src/img/medium/m011.png"
+        imagen: "src/img/medium/m011.png",
+        seleccionado: false,
       },
       {
         id: 42,
         palabra: "Chainsaw",
         significado: "Motosierra",
-        imagen: "src/img/medium/m012.png"
+        imagen: "src/img/medium/m012.png",
+        seleccionado: false,
       },
       {
         id: 43,
         palabra: "Sander",
         significado: "Lijadora",
-        imagen: "src/img/medium/m013.png"
+        imagen: "src/img/medium/m013.png",
+        seleccionado: false,
       },
       {
         id: 44,
         palabra: "Welding torch",
         significado: "Soldador o Soplete",
-        imagen: "src/img/medium/m014.png"
+        imagen: "src/img/medium/m014.png",
+        seleccionado: false,
       },
       {
         id: 45,
         palabra: "Weather",
         significado: "Clima o tiempo",
-        imagen: "src/img/medium/m015.png"
+        imagen: "src/img/medium/m015.png",
+        seleccionado: false,
       },
       {
         id: 46,
         palabra: "Temperature",
         significado: "Temperatura",
-        imagen: "src/img/medium/m016.png"
+        imagen: "src/img/medium/m016.png",
+        seleccionado: false,
       },
       {
         id: 47,
         palabra: "Degrees",
         significado: "Grados",
-        imagen: "src/img/medium/m017.png"
+        imagen: "src/img/medium/m017.png",
+        seleccionado: false,
       },
       {
         id: 48,
         palabra: "Below zero",
         significado: "Bajo cero",
-        imagen: "src/img/medium/m018.png"
+        imagen: "src/img/medium/m018.png",
+        seleccionado: false,
       },
       {
         id: 49,
         palabra: "Celsius",
         significado: "Grados centígrados",
-        imagen: "src/img/medium/m019.png"
+        imagen: "src/img/medium/m019.png",
+        seleccionado: false,
       },
       {
         id: 50,
         palabra: "Fahrenheit",
         significado: "Fahrenheit (grados en Estados Unidos)",
-        imagen: "src/img/medium/m020.png"
+        imagen: "src/img/medium/m020.png",
+        seleccionado: false,
       },
       {
         id: 51,
         palabra: "Rain",
         significado: "Lluvia",
-        imagen: "src/img/medium/m021.png"
+        imagen: "src/img/medium/m021.png",
+        seleccionado: false,
       },
       {
         id: 52,
         palabra: "Snow",
         significado: "Nieve",
-        imagen: "src/img/medium/m022.png"
+        imagen: "src/img/medium/m022.png",
+        seleccionado: false,
       },
       {
         id: 53,
         palabra: "Shower",
         significado: "Llovizna – Lluvia ligera",
-        imagen: "src/img/medium/m023.png"
+        imagen: "src/img/medium/m023.png",
+        seleccionado: false,
       },
       {
         id: 54,
         palabra: "Downpour",
         significado: "Aguacero, chaparrón – Lluvia fuerte",
-        imagen: "src/img/medium/m024.png"
+        imagen: "src/img/medium/m024.png",
+        seleccionado: false,
       },
       {
         id: 55,
         palabra: "Hailstone",
         significado: "Granizo, piedra de hielo",
-        imagen: "src/img/medium/m025.png"
+        imagen: "src/img/medium/m025.png",
+        seleccionado: false,
       },
       {
         id: 56,
         palabra: "Cloud",
         significado: "Nube",
-        imagen: "src/img/medium/m026.png"
+        imagen: "src/img/medium/m026.png",
+        seleccionado: false,
       },
       {
         id: 57,
         palabra: "Fog",
         significado: "Neblina",
-        imagen: "src/img/medium/m027.png"
+        imagen: "src/img/medium/m027.png",
+        seleccionado: false,
       },
       {
         id: 58,
         palabra: "Lightning",
         significado: "Rayo o relámpago",
-        imagen: "src/img/medium/m028.png"
+        imagen: "src/img/medium/m028.png",
+        seleccionado: false,
       },
       {
         id: 59,
         palabra: "Thunder",
         significado: "Trueno",
-        imagen: "src/img/medium/m029.png"
+        imagen: "src/img/medium/m029.png",
+        seleccionado: false,
       },
       {
         id: 60,
         palabra: "Storm",
         significado: "Tormenta",
-        imagen: "src/img/medium/m030.png"
+        imagen: "src/img/medium/m030.png",
+        seleccionado: false,
       }
     ]
   },
@@ -377,181 +437,211 @@ const words = [
         id: 61,
         palabra: "Give me a break",
         significado: "Dame un descanso",
-        imagen: "src/img/hard/h001.png"
+        imagen: "src/img/hard/h001.png",
+        seleccionado: false,
       },
       {
         id: 62,
         palabra: "Hurry up",
         significado: "Darse prisa",
-        imagen: "src/img/hard/h002.png"
+        imagen: "src/img/hard/h002.png",
+        seleccionado: false,
       },
       {
         id: 63,
         palabra: "Its on me",
         significado: "Yo invito",
-        imagen: "src/img/hard/h003.png"
+        imagen: "src/img/hard/h003.png",
+        seleccionado: false,
       },
       {
         id: 64,
         palabra: "Never mind",
         significado: "No importa",
-        imagen: "src/img/hard/h004.png"
+        imagen: "src/img/hard/h004.png",
+        seleccionado: false,
       },
       {
         id: 65,
         palabra: "Make my day",
         significado: "Alegrame el día",
-        imagen: "src/img/hard/h005.png"
+        imagen: "src/img/hard/h005.png",
+        seleccionado: false,
       },
       {
         id: 66,
         palabra: "Take it easy",
         significado: "Tomar las cosas con calma",
-        imagen: "src/img/hard/h006.png"
+        imagen: "src/img/hard/h006.png",
+        seleccionado: false,
       },
       {
         id: 67,
         palabra: "Early bird",
         significado: "Madrugador",
-        imagen: "src/img/hard/h007.png"
+        imagen: "src/img/hard/h007.png",
+        seleccionado: false,
       },
       {
         id: 68,
         palabra: "Night owls",
         significado: "Noctámbulo",
-        imagen: "src/img/hard/h008.png"
+        imagen: "src/img/hard/h008.png",
+        seleccionado: false,
       },
       {
         id: 69,
         palabra: "Go Dutch",
         significado: "Pagar a medias",
-        imagen: "src/img/hard/h009.png"
+        imagen: "src/img/hard/h009.png",
+        seleccionado: false,
       },
       {
         id: 70,
         palabra: "Gotcha",
         significado: "Entiendo",
-        imagen: "src/img/hard/h010.png"
+        imagen: "src/img/hard/h010.png",
+        seleccionado: false,
       },
       {
         id: 71,
         palabra: "Carry out",
         significado: "Llevar a cabo",
-        imagen: "src/img/hard/h011.png"
+        imagen: "src/img/hard/h011.png",
+        seleccionado: false,
       },
       {
         id: 72,
         palabra: "Pick up",
         significado: "Recoger",
-        imagen: "src/img/hard/h012.png"
+        imagen: "src/img/hard/h012.png",
+        seleccionado: false,
       },
       {
         id: 73,
         palabra: "Go back",
         significado: "Regresar",
-        imagen: "src/img/hard/h013.png"
+        imagen: "src/img/hard/h013.png",
+        seleccionado: false,
       },
       {
         id: 74,
         palabra: "Go out",
         significado: "Salir",
-        imagen: "src/img/hard/h014.png"
+        imagen: "src/img/hard/h014.png",
+        seleccionado: false,
       },
       {
         id: 75,
         palabra: "Work out",
         significado: "Ejercitarse",
-        imagen: "src/img/hard/h015.png"
+        imagen: "src/img/hard/h015.png",
+        seleccionado: false,
       },
       {
         id: 76,
         palabra: "Give up",
         significado: "Rendirse",
-        imagen: "src/img/hard/h016.png"
+        imagen: "src/img/hard/h016.png",
+        seleccionado: false,
       },
       {
         id: 77,
         palabra: "Turn on",
         significado: "Encender",
-        imagen: "src/img/hard/h017.png"
+        imagen: "src/img/hard/h017.png",
+        seleccionado: false,
       },
       {
         id: 78,
         palabra: "Turn off",
         significado: "Apagar",
-        imagen: "src/img/hard/h018.png"
+        imagen: "src/img/hard/h018.png",
+        seleccionado: false,
       },
       {
         id: 79,
         palabra: "Break up",
         significado: "Separarse o romper con alguien",
-        imagen: "src/img/hard/h019.png"
+        imagen: "src/img/hard/h019.png",
+        seleccionado: false,
       },
       {
         id: 80,
         palabra: "Turn into",
         significado: "Convertirse",
-        imagen: "src/img/hard/h020.png"
+        imagen: "src/img/hard/h020.png",
+        seleccionado: false,
       },
       {
         id: 81,
         palabra: "Up",
         significado: "Subir o hacia arriba",
-        imagen: "src/img/hard/h021.png"
+        imagen: "src/img/hard/h021.png",
+        seleccionado: false,
       },
       {
         id: 82,
         palabra: "Down",
         significado: "Bajar o hacia abajo",
-        imagen: "src/img/hard/h022.png"
+        imagen: "src/img/hard/h022.png",
+        seleccionado: false,
       },
       {
         id: 83,
         palabra: "Across",
         significado: "Que cruza",
-        imagen: "src/img/hard/h023.png"
+        imagen: "src/img/hard/h023.png",
+        seleccionado: false,
       },
       {
         id: 84,
         palabra: "Into",
         significado: "En o dentro de",
-        imagen: "src/img/hard/h024.png"
+        imagen: "src/img/hard/h024.png",
+        seleccionado: false,
       },
       {
         id: 85,
         palabra: "From … To",
         significado: "Desde…a / hasta",
-        imagen: "src/img/hard/h025.png"
+        imagen: "src/img/hard/h025.png",
+        seleccionado: false,
       },
       {
         id: 86,
         palabra: "Through",
         significado: "A través de o por",
-        imagen: "src/img/hard/h026.png"
+        imagen: "src/img/hard/h026.png",
+        seleccionado: false,
       },
       {
         id: 87,
         palabra: "Along",
         significado: "A lo largo de",
-        imagen: "src/img/hard/h027.png"
+        imagen: "src/img/hard/h027.png",
+        seleccionado: false,
       },
       {
         id: 88,
         palabra: "Around",
         significado: "Alrededor de",
-        imagen: "src/img/hard/h028.png"
+        imagen: "src/img/hard/h028.png",
+        seleccionado: false,
       },
       {
         id: 89,
         palabra: "Away",
         significado: "En otra dirección o alejarse",
-        imagen: "src/img/hard/h029.png"
+        imagen: "src/img/hard/h029.png",
+        seleccionado: false,
       },
       {
         id: 90,
         palabra: "Back",
         significado: "De vuelta, de regreso o hacia atrás",
-        imagen: "src/img/hard/h030.png"
+        imagen: "src/img/hard/h030.png",
+        seleccionado: false,
       }
     ]
   }

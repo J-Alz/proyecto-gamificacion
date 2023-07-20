@@ -2,7 +2,8 @@
 export default {
   name: 'Barra de cuenta regresiva',
   props: {
-    time: Number
+    time: Number,
+    activate:Boolean
   },
   mounted() {
     this.totaltime = this.time;
@@ -15,14 +16,19 @@ export default {
   },
   methods: {
     startCountdown() {
+      
       this.countdown = this.time;
       const interval = setInterval(() => {
-        this.countdown--; // decrementar la cuenta regresiva
-        this.progress = ((this.countdown) / (this.totaltime)) * parseInt(this.progressBarWidth); // calcular el porcentaje de progreso depediendo del porcentaje de la ventaja
-        if (this.countdown === 0) {
-          clearInterval(interval); // detener la cuenta regresiva cuando alcanza 0
-        }
-      }, 1000);
+          if(this.activate){
+            this.countdown--; // decrementar la cuenta regresiva
+            this.progress = ((this.countdown) / (this.totaltime)) * parseInt(this.progressBarWidth); // calcular el porcentaje de progreso depediendo del porcentaje de la ventaja
+            if (this.countdown === 0) {
+              clearInterval(interval); // detener la cuenta regresiva cuando alcanza 0
+            }
+            //enviar aquí el tiempo
+            this.$emit('fin',this.countdown)
+          }
+        }, 1000);
     },
     setProgressBarWidth() {
       const containerWidth = window.innerWidth - 20; // ancho del contenedor
@@ -52,7 +58,7 @@ export default {
     <div class="countdown">{{ formatTime(countdown) }}</div>
   </div>
 </template>
-<style>
+<style scoped>
 .progress-container {
   position: relative;
   /* Agregar posición relativa al contenedor */
@@ -70,7 +76,7 @@ export default {
   background-color: #4caf50;
   border: 1px solid white;
   transition: width 0.5s;
-  z-index: 2;
+  z-index: 3;
 }
 
 .progress-bar-back {
@@ -80,7 +86,7 @@ export default {
   margin: 10px 0px 10px 20px;
   background-color: #af604c;
   border: 1px solid white;
-  z-index: 1;
+  z-index: 2;
 }
 
 .countdown {
