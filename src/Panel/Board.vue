@@ -3,7 +3,8 @@
 
 export default{
   props: {
-    words:[]
+    words:[],
+    exists:[],
   },
   components: {
     Card
@@ -11,17 +12,20 @@ export default{
   data() {
     return {
       data: [],
-      selectedCardId:null
+      selectedCardId:null,
     }
   },
   methods:{
     isSelectedCard(cardId){
       return this.selectedCardId === cardId
     },
+    existInList(cardId){
+      return this.exists.includes(cardId)
+    },
     selectCard(cardId){
       this.selectedCardId = cardId
       this.$emit('cardSelected',cardId)
-      console.log(this.selectedCardId)
+      //console.log(this.selectedCardId)
     }
   }
 }
@@ -36,6 +40,7 @@ export default{
       :significado="dato.significado" 
       :id="dato.id"
       :selected="isSelectedCard(dato.id)"
+      :exists="existInList(dato.id)"
       @cardSelected="selectCard"
       />
     </article>

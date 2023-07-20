@@ -1,11 +1,11 @@
 <script>
 export default {
   props: {
-    words:[]
+    words:[],
   },
   data() {  
     return {
-      selectedWordId: null
+      selectedWordId: null,
     }
   },
   methods: {
@@ -15,7 +15,8 @@ export default {
     selectWord(wordId){
       this.selectedWordId = wordId;
       this.$emit('wordSelected',this.selectedWordId)
-    }
+    },
+    //Agregar funcion para marcar como negro tambien las palabras
   }
 
 }
@@ -25,9 +26,9 @@ export default {
   <section class="horizontal">
     <article class="list-container">
       <div 
+      v-for="dato in words" 
       class="element"
       :class="{ selected : isSelected(dato.id)}"
-      v-for="dato in words" 
       :key="dato.id"
       @click="selectWord(dato.id)">
         {{ dato.palabra }}
@@ -37,6 +38,9 @@ export default {
 </template>
 
 <style scoped>
+.restringido{
+  background-color: black;
+}
 .horizontal{
   display: flex;
   width: 100vw;

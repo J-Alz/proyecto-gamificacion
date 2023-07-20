@@ -9,8 +9,7 @@ import Board from './Panel/Board.vue'
 function elegir21(palabras) {
   palabras.sort(comparateAleatoria)
   palabras.splice(27)
-  // console.log(palabras)
-  return palabras//.splice(0,21)
+  return palabras
 }
 function comparateAleatoria(){
   return Math.random() - 0.5
@@ -36,6 +35,9 @@ export default {
       words:[],
       selectedWordId:null,
       selectedCardId:null,
+      exists:[],
+      puntaje:0,
+      totalVidas:4,
     };
   },
   watch: {
@@ -58,6 +60,8 @@ export default {
     },
     toggleVisibilityFin(){
       this.showFin = !this.showFin
+      this.puntaje = 0
+      this.totalVidas = 4
       //aplicar reinicio de contador y botones
     },
     tiempo(time){
@@ -71,11 +75,44 @@ export default {
     },
     onWordSelected(wordId){
       this.selectedWordId = wordId
-      console.log(wordId)
+      if(this.selectedWordId === this.selectedCardId){
+        this.exists.push(wordId)
+        this.puntaje += 10
+        this.selectedWordId = null
+        this.selectedCardId = null
+      }
+      if(this.selectedWordId != this.selectedCardId && this.selectedCardId != null && this.selectedWordId != null){
+        console.log(this.selectedWordId)
+        console.log(this.selectedCardId)
+        this.totalVidas--
+        this.selectedWordId = null
+        this.selectedCardId = null
+        if(this.totalVidas <= 0)
+          this.showFin = !this.showFin
+      }
+      //console.log(this.exists)
     },
     onCardSelect(cardId){
       this.selectedCardId = cardId
-      console.log(cardId)
+      if(this.selectedWordId === this.selectedCardId){
+        this.exists.push(cardId)
+        this.puntaje += 10
+        this.selectedWordId = null
+        this.selectedCardId = null
+      }
+      if(this.selectedWordId != this.selectedCardId && this.selectedWordId != null && this.selectedCardId != null){
+        console.log(this.selectedWordId)
+        console.log(this.selectedCardId)
+        this.totalVidas--
+        this.selectedWordId = null
+        this.selectedCardId = null
+        if(this.totalVidas <= 0)
+          this.showFin = !this.showFin
+      }
+      //console.log(this.exists)
+    },
+    perder(){
+      
     }
   }
 }
@@ -83,9 +120,14 @@ export default {
 <template>
   <section class="contPage">
     <div class="contenedor">
-      <Header @dificultadCambiada="dificultadCambiada" @activarJuego="jugar" @showAyuda="toggleVisibility"/>
-      <List :words="words" @wordSelected="onWordSelected"/>
-      <Board :words="words" @cardSelected="onCardSelect"/>
+      <Header 
+      @dificultadCambiada="dificultadCambiada" 
+      @activarJuego="jugar" 
+      :Puntos="puntaje"
+      :life="totalVidas"
+      @showAyuda="toggleVisibility"/>
+      <List :words="words" @wordSelected="onWordSelected" />
+      <Board :words="words" @cardSelected="onCardSelect" :exists="exists"/>
       <Footer :time="timer" :activate="activatePlay" @fin="showPanelFin"/> <!--Se debe mandar el tiempo en segundos--> 
     </div>
   </section>

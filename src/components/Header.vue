@@ -3,19 +3,15 @@ export default {
   components: {
   },
   props: {
-    Puntos: {
-      type: String,
-      required: true,
-    },
+    Puntos: Number,
     activate: Boolean,
+    life:Number
   },
   data() {
     return {
       Facil: false,
       Medio: false,
       Dificil: false,
-      puntos: "0",
-      life: 4,
       isClickedFacil: false,
       isClickedMedio: false,
       isClickedAvanzado: false,
@@ -87,7 +83,7 @@ export default {
       </div>
       <div class="apilar">
         <span>La puntuación es: </span>
-        <span>{{ this.puntos }} puntos</span>
+        <span>{{ Puntos }} puntos</span>
       </div>
     </article>
   </section>

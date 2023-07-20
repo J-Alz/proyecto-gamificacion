@@ -6,10 +6,12 @@ export default{
     significado:String,
     url:String,
     selected:Boolean,
+    exists:Boolean,
   },
   methods:{
     onCardClick(){
       this.$emit('cardSelected',this.id)
+      this.$emit('exists',this.id)
     }
   }
 }
@@ -19,18 +21,17 @@ export default{
   <article class="box" >
     <div class="box-card" @click="onCardClick" >
       <img :src="url" :alt="palabra" :id="id" :title="palabra">
-      <div class="card-shadow" :class="{'activada':selected}"></div>
+      <div class="card-shadow" :class="{'activada':selected, 'restringido':exists}"></div>
     </div>
   </article>
 </template>
 
 <style scoped>
-.selected{
-  background-color: rgba(81, 255, 0, 0.555)
-}
+
 .box{
   display: flex;
   justify-content: center;
+  position: relative;
 }
 .box-card{
   display: flex;
@@ -45,6 +46,9 @@ export default{
 }
 .activada{
   background-color: rgba(255, 0, 0, 0.555)
+}
+.restringido{
+  background-color: black;
 }
 .card-shadow{
   height: 110px;
