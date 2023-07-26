@@ -3,7 +3,7 @@
     <article class="ayuda" >
       <h1>Fin del juego</h1>
       <p>Gracias por jugar</p>
-      <img src="./assets/gameover.png" alt="" width="400">
+      <img src="../assets/gameover.png" alt="" width="400">
       <p>Click en cualquier parte de la pantalla para volver a jugar</p>
     </article>
   </section>
