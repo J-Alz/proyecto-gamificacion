@@ -1,4 +1,6 @@
 <script>
+import { mapState, mapMutations } from 'vuex'
+
 export default {
   components: {
   },
@@ -15,7 +17,8 @@ export default {
       isClickedFacil: false,
       isClickedMedio: false,
       isClickedAvanzado: false,
-      verb:'JUGAR!!!'
+      verb:'JUGAR!!!',
+      nombre:''
     };
   },
   methods: {
@@ -51,15 +54,22 @@ export default {
         this.isClickedMedio = false;
       }
     },
+    ...mapMutations(['changeName']),
+    actualizarNombre(){
+      this.changeName(this.nombre);
+      this.nombre = '';
+    }
   },
   created() {
   },
+  computed: mapState(['name'])
 };
 </script>
 <template>
   <section class="header">
     <article class="header-opcion">
       <span class="ayuda" @click="verAyuda">
+        {{ name }}
         <img src="./icons/question.svg" alt="" width="32" height="32">
       </span>
     </article>

@@ -1,5 +1,6 @@
 <script>
 import { RouterLink } from 'vue-router';
+import { mapMutations } from 'vuex'
 export default{
   components:{
     RouterLink,
@@ -8,13 +9,20 @@ export default{
     return{
       inputValue:'',
       hasInput:false,
+      inputSmall:true,
     }
   },
   methods:{
     checkInput(){
       this.hasInput = this.inputValue.trim().length > 4;
-      console.log(this.hasInput)
+      this.inputSmall = !(this.inputValue.trim().length < 5 && this.inputValue.trim().length > 0);
+      console.log(this.inputSmall)
     },
+    ...mapMutations(['changeName']),
+    actualizarNombre(){
+      this.changeName(this.inputValue);
+      this.inputValue = ''
+    }
   }
 }
 
@@ -26,20 +34,21 @@ export default{
         <h1>FindWord</h1>
         <label>--- Nombre ---</label>
         <input type="text" v-model="inputValue" @input="checkInput">
+        <span class="error" :hidden="inputSmall"><small>El nombre debe tener 5 caracteres</small></span>
         <RouterLink class="btn" to="/board">
-          <button :disabled="!hasInput">Ingresar</button>
+          <button :disabled="!hasInput" @click="actualizarNombre">Ingresar</button>
         </RouterLink>
       </form>
     </article>
   </section>
 </template>
 <style scoped>
-.azul{color: #26326E;}
-.azul-claro{color: #5D6FCA;}
-.orange{color: #D18466;}
-.orange-claro{color: #FFE4C5;}
-.rosa{color: #A542AB;}
-.rosa-claro{color: #E07BE1;}
+.error{
+  color: red;
+  font-weight: lighter;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 13px;
+}
 button:hover{
   background-color: #FFE4C5;
 }
@@ -98,7 +107,8 @@ h1{
 .contentHome{
   width: 100vw;
   height: 100vh;
-  background-image: url('../assets/fondo.jpg');
+  /*background-image: url('../assets/fondo.jpg');*/
+  font-family: 'Audiowide', cursive;
   background-size: cover;
   display: flex;
   justify-content: center;
