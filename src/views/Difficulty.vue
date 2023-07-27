@@ -1,24 +1,48 @@
 <script>
 import { mapState, mapMutations } from 'vuex'
 import { RouterLink } from 'vue-router';
+import words from '../assets/words.js';
+
+function shuffleArray(array){
+  for(let i = array.length - 1; i > 0; i--){
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
+function getElementsRamdon(lista, cantidad){
+  if(cantidad > lista.length){
+    console.log("mayor numero de elementos")
+    return []
+  }
+  const listaMezclada = shuffleArray([...lista]);
+  return listaMezclada.slice(0,cantidad);
+}
+
 export default{
   data(){
     return{
     }
   },
   methods:{
-    ...mapMutations(['changeDifficulty']),
+    ...mapMutations(['changeDifficulty','changeListWords']),
     easyDifficulty(){
       this.changeDifficulty('Facil');
+      this.changeListWords(getElementsRamdon(words[0].palabras,10));
+      console.log(this.listWords);
     },
     mediumDifficulty(){
       this.changeDifficulty('Medio');
+      this.changeListWords(getElementsRamdon(words[1].palabras,10));
+      console.log(this.listWords);
     },
     hardDifficulty(){
       this.changeDifficulty('Avanzado');
+      this.changeListWords(getElementsRamdon(words[2].palabras,10));
+      console.log(this.listWords);
     }
   },
-  computed: mapState(['name'])
+  computed: mapState(['name','listWords'])
 }
 </script>
 <template>

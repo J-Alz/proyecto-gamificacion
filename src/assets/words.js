@@ -70,7 +70,7 @@ const words = [
         id: 10,
         palabra: "Six",
         significado: "6",
-        imagen: "https://i.pinimg.com/236x/de/fd/2a/defd2a7edc92c4903d38e70ecd50ef31.jpg/img/easy/e010.png",
+        imagen: "https://i.pinimg.com/236x/de/fd/2a/defd2a7edc92c4903d38e70ecd50ef31.jpg",
         seleccionado: false,
       },
       {

@@ -31,7 +31,11 @@ export default {
     Board,
     Info,
     Fin
-},data() {
+},
+computed:{
+  
+},
+data() {
     return {
       dificultadSeleccionada: null,
       activatePlay: false,
