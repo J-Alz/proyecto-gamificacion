@@ -1,186 +1,97 @@
 <script>
 import { mapState, mapMutations } from 'vuex'
-
 export default {
-  components: {
-  },
-  props: {
-    Puntos: Number,
-    activate: Boolean,
-    life:Number
-  },
   data() {
     return {
-      Facil: false,
-      Medio: false,
-      Dificil: false,
-      isClickedFacil: false,
-      isClickedMedio: false,
-      isClickedAvanzado: false,
-      verb:'JUGAR!!!',
-      nombre:''
+      heart: 'https://www.svgrepo.com/show/525369/heart.svg',
+      coin:'https://www.svgrepo.com/show/325876/coins.svg',
+      btnPlay:'https://www.svgrepo.com/show/511104/play-circle.svg',
+      btnPause:'https://www.svgrepo.com/show/511100/pause-circle.svg',
+      btnQuest:'https://www.svgrepo.com/show/491697/question-circle.svg',
+      showBtn:false,
     };
   },
   methods: {
     ejecucion() {
-      if(this.verb === 'JUGAR!!!'){
-        this.$emit('ActivarJuego',true)
-        this.verb = 'PAUSAR'
-      }else{
-        this.$emit('ActivarJuego',false)
-        this.verb = 'JUGAR!!!'
-      }
-    },
-    verAyuda(){
-      this.$emit('showAyuda',true)
-    }
-    ,
-    seleccionarDificultad(dificultad) {
-      this.dificultadSeleccionada = dificultad;
-      this.$emit('dificultadCambiada', this.dificultadSeleccionada);
-      if ( dificultad === 'Facil'){
-        this.isClickedFacil = true;
-        this.isClickedMedio = false;
-        this.isClickedAvanzado = false;
-      }
-      if ( dificultad === 'Medio'){
-        this.isClickedMedio = true;
-        this.isClickedFacil = false;
-        this.isClickedAvanzado = false;
-      }
-      if ( dificultad === 'Avanzado'){
-        this.isClickedAvanzado = !this.isClickedAvanzado;
-        this.isClickedFacil = false;
-        this.isClickedMedio = false;
-      }
+      this.showBtn = !this.showBtn;
     },
     ...mapMutations(['changeName']),
-    actualizarNombre(){
-      this.changeName(this.nombre);
-      this.nombre = '';
-    }
   },
-  created() {
-  },
-  computed: mapState(['name','difficulty'])
+  computed: mapState(['name', 'difficulty','lifePlayer','coins','score'])
 };
 </script>
 <template>
   <section class="header">
-    <article class="header-opcion">
-      <span class="ayuda" @click="verAyuda">
-        {{ name }}{{ difficulty }}
-        <img src="./icons/question.svg" alt="" width="32" height="32">
-      </span>
+    <article class="info">
+      <div class="line1">
+        <span>{{ name }}</span>
+      </div>
+      <div class="line2">
+        <span><img class="icon imgInfo" :src="heart"> x{{ lifePlayer }}</span>
+        <span><img class="icon imgInfo" :src="coin"> x{{ coins }}</span>
+      </div>
+      <div class="line3">
+        <span>Puntaje: {{ score }}</span>
+      </div>
     </article>
-    <article class="header-centro">
-      <div class="centrar">
-        <button class="btn centro" @click="ejecucion">{{ verb }}</button>
-      </div>
-      <div class="centrar">
-        <button class="btn facil" :class="{'clicked': isClickedFacil}" @click="seleccionarDificultad('Facil')">Facil</button>
-    <button class="btn medio" :class="{'clicked': isClickedMedio}" @click="seleccionarDificultad('Medio')">Medio</button>
-    <button class="btn dificil" :class="{'clicked': isClickedAvanzado}" @click="seleccionarDificultad('Avanzado')">Díficil</button>
-  </div>
-    </article>
-    <article class="centrar">
-      <div class="apilar">
-        <span class="">VIDAS RESTANTES</span>
-        <span>
-          <img class="icon" src="https://www.svgrepo.com/show/503037/heart.svg" alt="" width="25" height="25">
-          x{{ life }}
-        </span>
-      </div>
-      <div class="apilar">
-        <span>La puntuación es: </span>
-        <span>{{ Puntos }} puntos</span>
-      </div>
+    <article class="play">
+      <img class="iconPlay" :src="btnQuest">
+      <img class="iconPlay" :src="btnPlay" v-show="!showBtn" @click="ejecucion">
+      <img class="iconPlay" :src="btnPause" v-show="showBtn" @click="ejecucion">
     </article>
   </section>
 </template>
 
 <style scoped>
-.header {
-  background-color: rgb(3, 117, 184);
-  width: 100%;
-  height: 100%;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  align-items: center;
+.imgInfo{
+  margin-right: 5px;
 }
-.header-centro{
-  width: 100%;
-  height: 100%;
-  display: grid;
-  grid-template-rows: 1fr 1fr;
-}
-.centrar{
-  display: flex;
-  width: 100%;
-  height: 100%;
-  justify-content: center;
-  align-items: center;
-  column-gap: 10px;
-  color: white;
-}
-.btn{
+.iconPlay{
   cursor: pointer;
-  padding: 10px 30px;
-  border-radius: 10px;
-  margin: 0;
-  border: 0;
-  font-family: 'Roboto', sans-serif;
-  font-size: 16px;
+  width: 50px;
 }
-.btn:hover{
-  background-color: rgba(126, 126, 126, 0.733);
-  border: 1px solid black;
+.icon {
+  width: 25px;
+  height: 25px;
 }
-.centro{
-  background-color: rgb(5, 39, 151);
-  color: white;
+.line2{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
-.facil{
-  background-color: rgb(97, 146, 24);
-  color: white;
-}
-.medio{
-  background-color: rgb(255, 153, 0);
-  color: white;
-}
-.dificil{
-  background-color: rgb(255, 71, 47);
-  color: white;
-}
-.header-opcion{
+.line3{
   display: flex;
   justify-content: space-around;
 }
-.ayuda{
-  cursor: pointer;
-}
-.ayuda:hover{
-  filter: invert(100%);
-}
-.apilar{
-  width: 100%;
-  height: 100%;
+.line1{
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
+  align-items: center;
+  overflow: hidden;
 }
 span{
   display: flex;
   align-items: center;
-  justify-content: center;
 }
-.icon{
-  filter: invert(100%);
+.play{
+  display: flex;
+  justify-content: space-around;
+  width: 50%;
+  height: 100%;
 }
-
-.clicked{
-  background-color: rgba(126, 126, 126, 0.733);
-  border: 1px solid black;
+.info{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 50%;
+  height: 100%;
+}
+.header{
+  display: flex;
+  background-color: #5d6fca7c;
+  border-radius: 15px;
+  width: 98%;
+  height: 95%;
 }
 
 </style>

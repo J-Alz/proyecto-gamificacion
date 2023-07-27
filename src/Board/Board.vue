@@ -33,7 +33,7 @@ export default {
     Fin
 },
 computed:{
-  
+
 },
 data() {
     return {
@@ -130,13 +130,16 @@ data() {
 <template>
   <section class="contPage">
     <div class="contenedor">
-      <Header 
-      @dificultadCambiada="dificultadCambiada" 
-      @activarJuego="jugar" 
-      :Puntos="puntaje"
-      :life="totalVidas"
-      @showAyuda="toggleVisibility"/>
-      <List :words="words" @wordSelected="onWordSelected" />
+      <div class="center">
+
+        <Header 
+        @dificultadCambiada="dificultadCambiada" 
+        @activarJuego="jugar" 
+        :Puntos="puntaje"
+        :life="totalVidas"
+        @showAyuda="toggleVisibility"/>
+      </div>
+        <List :words="words" @wordSelected="onWordSelected" />
       <Board :words="words" @cardSelected="onCardSelect" :exists="exists"/>
       <Footer :time="timer" :activate="activatePlay" @fin="showPanelFin"/> <!--Se debe mandar el tiempo en segundos--> 
     </div>
@@ -146,7 +149,12 @@ data() {
 </template>
 <style scoped>
   @import url('https://fonts.googleapis.com/css2?family=Monomaniac+One&family=Open+Sans:wght@300&family=Poiret+One&family=Roboto:ital,wght@0,100;0,300;0,500;1,100&display=swap');
-.contentFin{
+.center{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+  .contentFin{
   display: flex;
   justify-content: center;
   align-items: center;
