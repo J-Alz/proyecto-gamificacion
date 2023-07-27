@@ -9,16 +9,13 @@ export default{
   methods:{
     ...mapMutations(['changeDifficulty']),
     easyDifficulty(){
-      this.changeDifficulty(0);
-      console.log('probado');
+      this.changeDifficulty('Facil');
     },
     mediumDifficulty(){
-      this.changeDifficulty(1);
-      console.log('probado');
+      this.changeDifficulty('Medio');
     },
     hardDifficulty(){
-      this.changeDifficulty(2);
-      console.log('probado');
+      this.changeDifficulty('Avanzado');
     }
   },
   computed: mapState(['name'])

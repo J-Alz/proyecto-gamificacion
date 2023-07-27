@@ -62,14 +62,14 @@ export default {
   },
   created() {
   },
-  computed: mapState(['name'])
+  computed: mapState(['name','difficulty'])
 };
 </script>
 <template>
   <section class="header">
     <article class="header-opcion">
       <span class="ayuda" @click="verAyuda">
-        {{ name }}
+        {{ name }}{{ difficulty }}
         <img src="./icons/question.svg" alt="" width="32" height="32">
       </span>
     </article>
