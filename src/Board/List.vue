@@ -11,6 +11,7 @@ export default {
   methods: {
     selected(id){
       this.idWord = id;
+      console.log(id)
       this.$emit('selectedId',this.idWord)
     },
     isSelected(id){

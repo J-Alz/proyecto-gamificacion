@@ -31,10 +31,38 @@ export default {
       this.changeIdWord(id)
       //console.log(this.IdWord)
     },
-    ...mapMutations(['changeIdWord']),
+    ...mapMutations(['changeIdWord','changeScore','changeIdCard','changeLifePlayer']),
+    comprobar(){
+      if(this.IdCard !== null && this.IdWord !== null){
+
+        if(this.IdCard === this.IdWord){
+          console.log('iguales')
+          this.changeScore(this.score + 10)
+        }else{
+          console.log('no son iguales')
+          this.changeLifePlayer(this.lifePlayer - 1)
+          this.changeIdWord(null)
+          this.changeIdCard(null)
+        }
+      }
+    }
   },
   computed: {
-    ...mapState(['listWords','timer','showFin','showInfo','IdWord'])
+    ...mapState(['listWords','timer','showFin','showInfo','IdWord','IdCard','score','lifePlayer'])
+  },
+  watch:{
+    IdCard:{
+      deep:true,
+      handler(nuevoValor,antiguoValor){
+        this.comprobar()
+      }
+    },
+    IdWord:{
+      deep:true,
+      handler(nuevoValor,antiguoValor){
+        this.comprobar()
+      }
+    }
   }
 }
 </script>

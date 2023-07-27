@@ -8,6 +8,7 @@ export default {
       btnPlay:'https://www.svgrepo.com/show/511104/play-circle.svg',
       btnPause:'https://www.svgrepo.com/show/511100/pause-circle.svg',
       btnQuest:'https://www.svgrepo.com/show/491697/question-circle.svg',
+      btnReset:'https://www.svgrepo.com/show/501336/reset.svg',
       showBtn:false,
     };
   },
@@ -18,9 +19,9 @@ export default {
     verInfo(){
       this.changeShowInfo(true);
     },
-    ...mapMutations(['changeName','changeShowInfo']),
+    ...mapMutations(['changeName','changeShowInfo','reset']),
   },
-  computed: mapState(['name', 'difficulty','lifePlayer','coins','score','showInfo'])
+  computed: mapState(['name', 'difficulty','lifePlayer','coins','score','showInfo','IdCard','IdWord','listWords'])
 };
 </script>
 <template>
@@ -39,6 +40,7 @@ export default {
     </article>
     <article class="play">
       <img class="iconPlay" :src="btnQuest" @click="verInfo">
+      <img class="iconPlay" :src="btnReset" @click="reset">
       <img class="iconPlay" :src="btnPlay" v-show="!showBtn" @click="ejecucion">
       <img class="iconPlay" :src="btnPause" v-show="showBtn" @click="ejecucion">
     </article>
