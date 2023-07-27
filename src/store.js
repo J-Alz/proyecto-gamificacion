@@ -6,10 +6,15 @@ const store = createStore({
     return{
       name:'',
       difficulty: '',
-      listWords:[],
+      listWords:localStorage.getItem('listWords'),
       lifePlayer:4,
       score:0,
       coins:0,
+      timer:600,
+      showFin:false,
+      showInfo:false,
+      selectedIdCard:0,
+      IdWord:0,
     }
   },
   mutations:{
@@ -23,7 +28,7 @@ const store = createStore({
     },
     changeListWords(state,newListWords){
       state.listWords = newListWords;
-      localStorage.setItem('listWords',newListWords)
+      localStorage.setItem('listWords',JSON.stringify(newListWords))
     },
     changeLifePlayer(state,newLifePlayer){
       state.lifePlayer = newLifePlayer;
@@ -36,6 +41,22 @@ const store = createStore({
     changeCoins(state,newCoins){
       state.coins = newCoins;
       localStorage.setItem('coins',newCoins);
+    },
+    changeTimer(state,newTimer){
+      state.timer = newTimer;
+      localStorage.setItem('timer',newTimer);
+    },
+    changeShowFin(state,newShowFin){
+      state.showFin = newShowFin;
+    },
+    changeShowInfo(state,newShowInfo){
+      state.showInfo = newShowInfo;
+    },
+    changeSelectedIdCard(state, newSelected){
+      state.selectedIdCard = newSelected;
+    },
+    changeIdWord(state, newSelected){
+      state.IdWord = newSelected;
     }
   },
   actions:{

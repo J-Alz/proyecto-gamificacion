@@ -1,129 +1,40 @@
 <script>
-import Header from '../components/Header.vue'
-import Footer from '../components/Footer.vue'
-import List from '../components/List.vue'
+import Header from './Header.vue'
+import Timer from './Timer.vue'
+import List from './List.vue'
 import words from '../assets/words'
-import Board from '../Panel/Board.vue'
+import Board from './Table.vue'
 
 import Info from '../components/Info.vue'
 import Fin from '../components/Fin.vue'
-function elegir21(palabras) {
-  palabras.sort(comparateAleatoria)
-  palabras.splice(27)
-  return palabras
-}
-function comparateAleatoria(){
-  return Math.random() - 0.5
-}
-function buscarPalabrasPorDificultad(dificultad) {
-  const filteredWords = words.find((wordSet) => wordSet.dificultad === dificultad);
-  if (filteredWords) {
-    return filteredWords.palabras;
-  }
-  return [];
-}
+import { mapState, mapMutations } from 'vuex'
+
+import Table from './Table.vue'
+
 
 export default {
   components: {
     Header,
-    Footer,
+    Timer,
     List,
     Board,
     Info,
-    Fin
-},
-computed:{
-
-},
-data() {
+    Fin,
+    Table
+  },
+  data() {
     return {
-      dificultadSeleccionada: null,
-      activatePlay: false,
-      showElement: false,
-      timer: 60,
-      showFin: false,
-      words:[],
-      selectedWordId:null,
-      selectedCardId:null,
-      exists:[],
-      puntaje:0,
-      totalVidas:4,
     };
   },
-  watch: {
-    dificultadSeleccionada: {
-      immediate: true,
-      handler(nuevaDificultad) {
-        this.words = elegir21(buscarPalabrasPorDificultad(nuevaDificultad));
-      },
-    },
-  },
   methods: {
-    dificultadCambiada(dificultad) {
-      this.dificultadSeleccionada = dificultad;
+    updateIdList(id){
+      this.changeIdWord(id)
+      //console.log(this.IdWord)
     },
-    jugar(activar){
-      this.activatePlay = activar
-    },
-    toggleVisibility(){
-      this.showElement = !this.showElement
-    },
-    toggleVisibilityFin(){
-      this.showFin = !this.showFin
-      this.puntaje = 0
-      this.totalVidas = 4
-      //aplicar reinicio de contador y botones
-    },
-    tiempo(time){
-      this.timer = time
-    },
-    showPanelFin(time){
-      console.log(time)
-      if(time === 0){
-        this.showFin = true
-      }
-    },
-    onWordSelected(wordId){
-      this.selectedWordId = wordId
-      if(this.selectedWordId === this.selectedCardId){
-        this.exists.push(wordId)
-        this.puntaje += 10
-        this.selectedWordId = null
-        this.selectedCardId = null
-      }
-      if(this.selectedWordId != this.selectedCardId && this.selectedCardId != null && this.selectedWordId != null){
-        console.log(this.selectedWordId)
-        console.log(this.selectedCardId)
-        this.totalVidas--
-        this.selectedWordId = null
-        this.selectedCardId = null
-        if(this.totalVidas <= 0)
-          this.showFin = !this.showFin
-      }
-      //console.log(this.exists)
-    },
-    onCardSelect(cardId){
-      this.selectedCardId = cardId
-      if(this.selectedWordId === this.selectedCardId){
-        this.exists.push(cardId)
-        this.puntaje += 10
-        this.selectedWordId = null
-        this.selectedCardId = null
-      }
-      if(this.selectedWordId != this.selectedCardId && this.selectedWordId != null && this.selectedCardId != null){
-        console.log(this.selectedWordId)
-        console.log(this.selectedCardId)
-        this.totalVidas--
-        this.selectedWordId = null
-        this.selectedCardId = null
-        if(this.totalVidas <= 0)
-          this.showFin = !this.showFin
-      }
-      //console.log(this.exists)
-    },
-    perder(){
-      
-    }
+    ...mapMutations(['changeIdWord']),
+  },
+  computed: {
+    ...mapState(['listWords','timer','showFin','showInfo','IdWord'])
   }
 }
 </script>
@@ -131,30 +42,26 @@ data() {
   <section class="contPage">
     <div class="contenedor">
       <div class="center">
-
-        <Header 
-        @dificultadCambiada="dificultadCambiada" 
-        @activarJuego="jugar" 
-        :Puntos="puntaje"
-        :life="totalVidas"
-        @showAyuda="toggleVisibility"/>
+        <Header />
       </div>
-        <List :words="words" @wordSelected="onWordSelected" />
-      <Board :words="words" @cardSelected="onCardSelect" :exists="exists"/>
-      <Footer :time="timer" :activate="activatePlay" @fin="showPanelFin"/> <!--Se debe mandar el tiempo en segundos--> 
+      <Timer :time="timer"/>
+      <List :words="listWords" @selectedId="updateIdList"/>
+      <Table :words="listWords"/>
     </div>
+    <Fin v-show="showFin"></Fin>
+    <Info v-show="showInfo"></Info>
   </section>
-  <Info v-show="showElement" @click="toggleVisibility"></Info>
-  <Fin v-show="showFin" @click="toggleVisibilityFin"></Fin>
 </template>
 <style scoped>
-  @import url('https://fonts.googleapis.com/css2?family=Monomaniac+One&family=Open+Sans:wght@300&family=Poiret+One&family=Roboto:ital,wght@0,100;0,300;0,500;1,100&display=swap');
-.center{
+@import url('https://fonts.googleapis.com/css2?family=Monomaniac+One&family=Open+Sans:wght@300&family=Poiret+One&family=Roboto:ital,wght@0,100;0,300;0,500;1,100&display=swap');
+
+.center {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-  .contentFin{
+
+.contentFin {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -166,19 +73,21 @@ data() {
   z-index: 1;
 }
 
-.contenedor{
-  position: relative;
+.contenedor {
+  position: absolute;
   width: 100vw;
   height: 100vh;
   display: grid;
-  grid-template-rows: 100px 60px 1fr 40px;
+  grid-template-rows: 100px 40px 60px 1fr;
   font-family: 'Roboto', sans-serif;
   /*background-color: rgba(150, 150, 250, 0.25);*/
 }
-.contPage{
+
+.contPage {
   position: absolute;
 }
-.contenedor2{
+
+.contenedor2 {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -189,7 +98,8 @@ data() {
   cursor: pointer;
   z-index: 1;
 }
-.ayuda{
+
+.ayuda {
   width: 90vw;
   height: 82vh;
   display: flex;
@@ -199,11 +109,12 @@ data() {
   background-color: white;
   font-family: 'Roboto', sans-serif;
 }
-h1{
+
+h1 {
   font-size: 30px;
 }
-p{
+
+p {
   padding: 0px 20px;
   text-align: justify;
-}
-</style>
+}</style>

@@ -1,5 +1,17 @@
+<script>
+import { mapState, mapMutations } from 'vuex'
+export default{
+  methods:{
+    salir(){
+      this.changeShowFin(false);
+    },
+    ...mapMutations(['changeShowFin']),
+  },
+  computed: mapState(['showFin'])
+}
+</script>
 <template>
-  <section class="contenedor2">
+  <section class="contenedor2" @click="salir">
     <article class="ayuda" >
       <h1>Fin del juego</h1>
       <p>Gracias por jugar</p>

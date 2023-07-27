@@ -1,5 +1,17 @@
+<script>
+import { mapState, mapMutations } from 'vuex'
+export default{
+  methods:{
+    salir(){
+      this.changeShowInfo(false);
+    },
+    ...mapMutations(['changeShowInfo']),
+  },
+  computed: mapState(['showInfo'])
+}
+</script>
 <template>
-  <section class="contenedor2">
+  <section class="contenedor2" @click="salir">
     <article class="ayuda" >
       <h1>INFORMACIÓN</h1>
       <p>El juego se basa en encontrar los pares, entre una imagen y su significado en ingles</p>

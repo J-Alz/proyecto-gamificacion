@@ -15,9 +15,12 @@ export default {
     ejecucion() {
       this.showBtn = !this.showBtn;
     },
-    ...mapMutations(['changeName']),
+    verInfo(){
+      this.changeShowInfo(true);
+    },
+    ...mapMutations(['changeName','changeShowInfo']),
   },
-  computed: mapState(['name', 'difficulty','lifePlayer','coins','score'])
+  computed: mapState(['name', 'difficulty','lifePlayer','coins','score','showInfo'])
 };
 </script>
 <template>
@@ -35,7 +38,7 @@ export default {
       </div>
     </article>
     <article class="play">
-      <img class="iconPlay" :src="btnQuest">
+      <img class="iconPlay" :src="btnQuest" @click="verInfo">
       <img class="iconPlay" :src="btnPlay" v-show="!showBtn" @click="ejecucion">
       <img class="iconPlay" :src="btnPause" v-show="showBtn" @click="ejecucion">
     </article>
@@ -90,8 +93,8 @@ span{
   display: flex;
   background-color: #5d6fca7c;
   border-radius: 15px;
-  width: 98%;
-  height: 95%;
+  width: 94%;
+  height: 94%;
 }
 
 </style>

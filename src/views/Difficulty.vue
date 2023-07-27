@@ -28,17 +28,17 @@ export default{
     ...mapMutations(['changeDifficulty','changeListWords']),
     easyDifficulty(){
       this.changeDifficulty('Facil');
-      this.changeListWords(getElementsRamdon(words[0].palabras,10));
+      this.changeListWords(getElementsRamdon(words[0].palabras,20));
       console.log(this.listWords);
     },
     mediumDifficulty(){
       this.changeDifficulty('Medio');
-      this.changeListWords(getElementsRamdon(words[1].palabras,10));
+      this.changeListWords(getElementsRamdon(words[1].palabras,20));
       console.log(this.listWords);
     },
     hardDifficulty(){
       this.changeDifficulty('Avanzado');
-      this.changeListWords(getElementsRamdon(words[2].palabras,10));
+      this.changeListWords(getElementsRamdon(words[2].palabras,20));
       console.log(this.listWords);
     }
   },
