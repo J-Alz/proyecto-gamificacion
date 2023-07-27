@@ -41,8 +41,6 @@ export default {
     <article class="play">
       <img class="iconPlay" :src="btnQuest" @click="verInfo">
       <img class="iconPlay" :src="btnReset" @click="reset">
-      <img class="iconPlay" :src="btnPlay" v-show="!showBtn" @click="ejecucion">
-      <img class="iconPlay" :src="btnPause" v-show="showBtn" @click="ejecucion">
     </article>
   </section>
 </template>

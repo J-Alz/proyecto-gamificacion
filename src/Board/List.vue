@@ -11,7 +11,6 @@ export default {
   methods: {
     selected(id){
       this.idWord = id;
-      console.log(id)
       this.$emit('selectedId',this.idWord)
     },
     isSelected(id){
@@ -32,15 +31,12 @@ export default {
   </section>
 </template>
 <style scoped>
-.restringido{
-  background-color: black;
-}
 .lista{
   display: flex;
-  width: 100vw;
+  width: 100%;
   justify-content: center;
   align-items: center;
-  overflow-x: auto;
+  overflow-x: scroll;
   overflow-y: hidden;
   white-space: nowrap;
 }

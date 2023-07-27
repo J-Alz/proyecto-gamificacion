@@ -21,6 +21,7 @@ if(difficultySave){store.commit('changeDifficulty',difficultySave)}
   const lista = JSON.parse(listWordsSave);
   store.commit('changeListWords',lista)
 }*/
+if(listWordsSave){store.commit('changeListWords',listWordsSave)}
 if(lifePlayerSave){store.commit('changeLifePlayer',lifePlayerSave)}
 if(scoreSave){store.commit('changeScore',scoreSave)}
 if(coinsSave){store.commit('changeCoinsSave',coinsSave)}

@@ -5,12 +5,12 @@ const store = createStore({
   state(){
     return{
       name:'',
-      difficulty: '',
-      listWords:localStorage.getItem('listWords'),
+      difficulty: null,
+      listWords:[],
       lifePlayer:4,
-      score:null,
+      score:0,
       coins:0,
-      timer:600,
+      timer:100,
       showFin:false,
       showInfo:false,
       IdCard:null,
@@ -35,7 +35,8 @@ const store = createStore({
     },
     changeListWords(state,newListWords){
       state.listWords = newListWords;
-      localStorage.setItem('listWords',JSON.stringify(newListWords))
+      //localStorage.setItem('listWords',JSON.stringify(newListWords))
+      localStorage.setItem('listWords',newListWords)
     },
     changeLifePlayer(state,newLifePlayer){
       state.lifePlayer = newLifePlayer;

@@ -51,10 +51,14 @@ export default {
   display: grid;
   grid-template-columns: 100vw;
   grid-template-rows: 1fr;
-  background-color: rgba(3, 117, 184, 1);
+  align-items: center;
+  justify-items: center;
 }
 
 .board {
+  background-color: rgba(3, 118, 184, 0.486);
+  border-radius: 15px;
+  width: 98%;
   display: grid;
   grid-template-columns: repeat(9, 110px);
   grid-template-rows: 126px 126px 126px;
@@ -65,8 +69,7 @@ export default {
 @media (max-width: 768px) {
   .board {
     display: grid;
-    grid-template-columns: repeat(3, 110px);
-
+    grid-template-columns: repeat(2, 110px);
     justify-content: center;
     align-items: center;
   }
