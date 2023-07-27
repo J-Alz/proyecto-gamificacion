@@ -4,13 +4,18 @@ const store = createStore({
   state(){
     return{
       name:'',
-      difficulty:'',
+      difficulty: 0,
 
     }
   },
   mutations:{
     changeName(state, newName){
       state.name = newName;
+      localStorage.setItem('name',newName);
+    },
+    changeDifficulty(state,newDifficulty){
+      state.difficulty = newDifficulty;
+      localStorage.setItem('difficulty',newDifficulty)
     }
   },
   actions:{

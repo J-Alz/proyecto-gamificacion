@@ -35,7 +35,7 @@ export default{
         <label>--- Nombre ---</label>
         <input type="text" v-model="inputValue" @input="checkInput">
         <span class="error" :hidden="inputSmall"><small>El nombre debe tener 5 caracteres</small></span>
-        <RouterLink class="btn" to="/board">
+        <RouterLink class="btn" to="/difficulty">
           <button :disabled="!hasInput" @click="actualizarNombre">Ingresar</button>
         </RouterLink>
       </form>
@@ -58,8 +58,6 @@ button{
   border-radius: 10px;
   border: 0;
   background-color:  #D18466;
-}
-button{
   text-decoration: none;
   font-size: 15px;
   font-weight: bold;
